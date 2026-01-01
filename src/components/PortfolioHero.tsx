@@ -28,7 +28,7 @@ const PortfolioHero = () => {
           />
           <BlurText
             text="SASIREKHA"
-            className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 mt-[-5px] md:mt-[-10px]"
+            className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-purple-400 mt-[-5px] md:mt-[-10px]"
             delay={300}
             animateBy="letters"
             stepDuration={0.8}
@@ -49,7 +49,7 @@ const PortfolioHero = () => {
           />
           <BlurText
             text="ENGINEER"
-            className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500"
+            className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-purple-400"
             delay={800}
             animateBy="words"
             direction="bottom"
