@@ -1,7 +1,7 @@
 import LightPillar from "./LightPillar";
 import BlurText from "./BlurText";
 import { motion } from "framer-motion";
-import tarunPortrait from "@/assets/tarun-portrait.png";
+import tarunPortrait from "@/assets/tarun-portrait.jpg";
 
 const PortfolioHero = () => {
   return (
@@ -54,13 +54,12 @@ const PortfolioHero = () => {
             initial={{ opacity: 0, filter: "blur(20px)", scale: 0.95 }}
             animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
             transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
-            className="mb-2 relative"
+            className="mb-4 md:mb-6"
           >
-            <div className="absolute inset-0 bg-purple-500/30 blur-3xl rounded-full scale-110" />
             <img
               src={tarunPortrait}
               alt="Tarun Sasirekha"
-              className="relative w-64 h-auto md:w-80 lg:w-96 object-contain drop-shadow-[0_0_30px_rgba(168,85,247,0.4)]"
+              className="w-40 h-52 md:w-56 md:h-72 lg:w-64 lg:h-80 object-cover object-top rounded-lg shadow-2xl shadow-purple-500/20"
             />
           </motion.div>
 
