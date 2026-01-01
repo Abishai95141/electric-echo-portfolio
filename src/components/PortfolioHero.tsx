@@ -1,5 +1,5 @@
-import LightPillar from './LightPillar';
-import BlurText from './BlurText';
+import LightPillar from "./LightPillar";
+import BlurText from "./BlurText";
 
 const PortfolioHero = () => {
   return (
@@ -16,63 +16,50 @@ const PortfolioHero = () => {
         rotationSpeed={0.2}
       />
 
-      {/* Content Container */}
-      <div className="relative z-10 min-h-screen flex flex-col lg:flex-row items-center justify-center">
-        {/* Left Side - Name (45% width, pushed right with gap from center) */}
-        <div className="relative z-20 w-full lg:w-[45%] flex flex-col items-center lg:items-end justify-center px-8 py-12 lg:py-0 lg:pr-32">
-          <div className="text-center lg:text-right">
-            <BlurText
-              text="TARUN"
-              animateBy="letters"
-              delay={80}
-              stepDuration={1.0}
-              className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight text-foreground"
-            />
-            <BlurText
-              text="SASIREKHA"
-              animateBy="letters"
-              delay={60}
-              stepDuration={1.0}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight bg-gradient-to-r from-foreground to-purple-300 bg-clip-text text-transparent mt-2"
-            />
-          </div>
+      {/* 2. Content Layer */}
+      <div className="relative z-20 w-full h-full flex flex-col justify-center items-start pl-10 md:pl-32 lg:pl-48">
+        {/* TOP: Name Block (Stacked Left) */}
+        <div className="flex flex-col items-start">
+          <BlurText
+            text="TARUN"
+            className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter text-white drop-shadow-2xl"
+            delay={100}
+            animateBy="letters"
+            stepDuration={0.8}
+          />
+          <BlurText
+            text="SASIREKHA"
+            className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-300 mt-[-5px] md:mt-[-15px]"
+            delay={300}
+            animateBy="letters"
+            stepDuration={0.8}
+          />
         </div>
 
-        {/* Center Gap (10% empty space for the light pillar) */}
-        <div className="hidden lg:block lg:w-[10%]" />
+        {/* BOTTOM LEFT (Relative to Tarun): Title Block */}
+        <div className="mt-8 md:mt-12 ml-2 md:ml-4 flex flex-col items-start">
+          <BlurText
+            text="ELECTRICAL"
+            className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white/80"
+            delay={600}
+            animateBy="words"
+            direction="bottom"
+            stepDuration={1}
+          />
+          <BlurText
+            text="ENGINEERING"
+            /* FIXED: Added Purple Accent as requested */
+            className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-500"
+            delay={800}
+            animateBy="words"
+            direction="bottom"
+            stepDuration={1}
+          />
 
-        {/* Right Side - Title (45% width, pushed left with gap from center) */}
-        <div className="relative z-20 w-full lg:w-[45%] flex flex-col items-center lg:items-start justify-center px-8 py-12 lg:py-0 lg:pl-32">
-          <div className="text-center lg:text-left">
-            <BlurText
-              text="ELECTRICAL"
-              direction="bottom"
-              animateBy="words"
-              delay={150}
-              stepDuration={1.0}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground"
-            />
-            <BlurText
-              text="ENGINEER"
-              direction="bottom"
-              animateBy="words"
-              delay={200}
-              stepDuration={1.0}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent mt-1"
-            />
-            
-            {/* Harvard Badge */}
-            <div className="flex items-center justify-center lg:justify-start gap-4 mt-8">
-              <div className="h-px w-12 bg-gradient-to-r from-transparent to-muted-foreground" />
-              <BlurText
-                text="@HARVARD"
-                direction="bottom"
-                animateBy="letters"
-                delay={40}
-                stepDuration={0.8}
-                className="text-sm sm:text-base tracking-[0.3em] text-muted-foreground font-medium"
-              />
-            </div>
+          {/* Subtitle / Harvard Tag */}
+          <div className="mt-6 inline-flex items-center gap-3 opacity-70">
+            <span className="h-[2px] w-12 bg-purple-500"></span>
+            <span className="text-lg md:text-xl font-light tracking-[0.2em] text-purple-200 uppercase">@HARVARD</span>
           </div>
         </div>
       </div>
