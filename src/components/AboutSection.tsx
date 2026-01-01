@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import BlurText from "./BlurText";
 import SkillsMarquee from "./SkillsMarquee";
-import LaserFlow from "./LaserFlow";
 
 const skillCategories = [
   {
@@ -44,23 +43,12 @@ const itemVariants = {
 
 const AboutSection = () => {
   return (
-    <section id="about" className="relative min-h-screen w-full bg-black overflow-hidden font-outfit">
-      {/* LaserFlow Background */}
-      <div className="absolute inset-0 z-0">
-        <LaserFlow 
-          color="#8C7EF7"
-          verticalBeamOffset={0.35}
-          verticalSizing={3.5}
-          horizontalSizing={0.6}
-          fogIntensity={0.6}
-          wispIntensity={4.0}
-          flowSpeed={0.3}
-          wispDensity={1.2}
-        />
-      </div>
+    <section id="about" className="relative min-h-screen w-full overflow-hidden font-outfit">
+      {/* Top gradient fade for smooth transition from hero */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/80 to-transparent z-[1] pointer-events-none" />
 
       {/* Content Container */}
-      <div className="relative z-10 container mx-auto px-6 md:px-12 lg:px-20 py-24 lg:py-32">
+      <div className="relative z-10 container mx-auto px-6 md:px-12 lg:px-20 py-24 lg:py-32 pt-40 lg:pt-48">
         
         {/* Glowing Container */}
         <motion.div 
@@ -187,6 +175,9 @@ const AboutSection = () => {
 
         </motion.div>
       </div>
+
+      {/* Bottom gradient for section end */}
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/60 to-transparent z-[1] pointer-events-none" />
     </section>
   );
 };
