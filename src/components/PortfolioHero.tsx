@@ -11,10 +11,10 @@ const PortfolioHero = () => {
         topColor="#8C7EF7"
         bottomColor="#000000"
         pillarRotation={15}
-        intensity={1.2}
-        glowAmount={0.006}
-        pillarWidth={2.5}
-        pillarHeight={0.5}
+        intensity={0.4}
+        glowAmount={0.003}
+        pillarWidth={2.0}
+        pillarHeight={0.4}
         rotationSpeed={0.2}
       />
 
