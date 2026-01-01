@@ -312,7 +312,7 @@ export const LaserFlow: React.FC<Props> = ({
     const mount = mountRef.current!;
     const renderer = new THREE.WebGLRenderer({
       antialias: false,
-      alpha: false,
+      alpha: true,
       depth: false,
       stencil: false,
       powerPreference: 'high-performance',
