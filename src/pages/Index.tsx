@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import PortfolioHero from '@/components/PortfolioHero';
 import AboutSection from '@/components/AboutSection';
+import LaserFlow from '@/components/LaserFlow';
 
 const Index = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -10,28 +11,36 @@ const Index = () => {
     offset: ["start start", "end end"]
   });
 
-  const heroY = useTransform(scrollYProgress, [0, 0.5], ["0%", "-30%"]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
-  const aboutY = useTransform(scrollYProgress, [0.2, 0.5], ["20%", "0%"]);
-  const aboutOpacity = useTransform(scrollYProgress, [0.2, 0.4], [0, 1]);
 
   return (
     <div ref={containerRef} className="relative bg-black">
-      {/* Hero Section with Parallax */}
+      {/* Global LaserFlow Background - Fixed position, spans entire viewport */}
+      <div className="fixed inset-0 z-0">
+        <LaserFlow
+          color="#8C7EF7"
+          verticalBeamOffset={0.25}
+          verticalSizing={4.0}
+          horizontalSizing={0.5}
+          fogIntensity={0.55}
+          wispIntensity={4.0}
+          flowSpeed={0.3}
+          wispSpeed={12.0}
+        />
+      </div>
+
+      {/* Hero Section */}
       <motion.div 
-        style={{ y: heroY, opacity: heroOpacity }}
-        className="sticky top-0 z-10"
+        style={{ opacity: heroOpacity }}
+        className="relative z-10"
       >
         <PortfolioHero />
       </motion.div>
 
-      {/* About Section with Parallax Reveal */}
-      <motion.div 
-        style={{ y: aboutY, opacity: aboutOpacity }}
-        className="relative z-20"
-      >
+      {/* About Section */}
+      <div className="relative z-20">
         <AboutSection />
-      </motion.div>
+      </div>
     </div>
   );
 };

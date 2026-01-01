@@ -1,26 +1,11 @@
-import LightPillar from "./LightPillar";
 import BlurText from "./BlurText";
 import { motion } from "framer-motion";
 import tarunHeroBg from "@/assets/tarun-hero-bg.jpg";
 
 const PortfolioHero = () => {
   return (
-    <section className="relative min-h-screen w-full bg-black overflow-hidden font-outfit">
-      {/* Layer 1: WebGL Light Pillar (base layer) */}
-      <div className="absolute inset-0 z-[1]">
-        <LightPillar
-          topColor="#8C7EF7"
-          bottomColor="#000000"
-          pillarRotation={15}
-          intensity={1.4}
-          glowAmount={0.008}
-          pillarWidth={2.5}
-          pillarHeight={0.5}
-          rotationSpeed={0.2}
-        />
-      </div>
-
-      {/* Layer 2: Portrait image with lighten blend to show light rays through */}
+    <section className="relative min-h-screen w-full overflow-hidden font-outfit">
+      {/* Portrait image with lighten blend to show light rays through */}
       <motion.div
         initial={{ opacity: 0, filter: "blur(30px)", scale: 1.05 }}
         animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
@@ -35,7 +20,7 @@ const PortfolioHero = () => {
         />
       </motion.div>
 
-      {/* Layer 4: TOP LEFT - Title Block */}
+      {/* TOP LEFT - Title Block */}
       <div className="absolute top-16 md:top-24 lg:top-32 left-8 md:left-16 lg:left-24 z-20">
         <div className="flex flex-col items-start relative">
           <BlurText
@@ -63,7 +48,7 @@ const PortfolioHero = () => {
         </div>
       </div>
 
-      {/* Layer 4: BOTTOM RIGHT - Name Block */}
+      {/* BOTTOM RIGHT - Name Block */}
       <div className="absolute bottom-8 md:bottom-16 lg:bottom-24 right-8 md:right-16 lg:right-24 z-20">
         <div className="flex flex-col items-end relative">
           <BlurText
