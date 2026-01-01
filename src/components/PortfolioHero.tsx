@@ -18,50 +18,58 @@ const PortfolioHero = () => {
 
       {/* Content Container */}
       <div className="relative z-10 min-h-screen flex flex-col lg:flex-row items-center justify-center">
-        {/* Left Side - Name */}
-        <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-end justify-center px-8 lg:px-16 py-12 lg:py-0 lg:pr-24">
-          <div className="text-right">
+        {/* Left Side - Name (45% width, pushed right with gap from center) */}
+        <div className="relative z-20 w-full lg:w-[45%] flex flex-col items-center lg:items-end justify-center px-8 py-12 lg:py-0 lg:pr-32">
+          <div className="text-center lg:text-right">
             <BlurText
               text="TARUN"
               animateBy="letters"
-              delay={50}
-              className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight bg-gradient-to-r from-foreground via-foreground to-accent bg-clip-text text-transparent"
+              delay={80}
+              stepDuration={1.0}
+              className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight text-foreground"
             />
             <BlurText
               text="SASIREKHA"
               animateBy="letters"
-              delay={40}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight bg-gradient-to-r from-foreground to-accent bg-clip-text text-transparent mt-2"
+              delay={60}
+              stepDuration={1.0}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight bg-gradient-to-r from-foreground to-purple-300 bg-clip-text text-transparent mt-2"
             />
           </div>
         </div>
 
-        {/* Right Side - Title */}
-        <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start justify-center px-8 lg:px-16 py-12 lg:py-0 lg:pl-24">
-          <div className="text-left">
+        {/* Center Gap (10% empty space for the light pillar) */}
+        <div className="hidden lg:block lg:w-[10%]" />
+
+        {/* Right Side - Title (45% width, pushed left with gap from center) */}
+        <div className="relative z-20 w-full lg:w-[45%] flex flex-col items-center lg:items-start justify-center px-8 py-12 lg:py-0 lg:pl-32">
+          <div className="text-center lg:text-left">
             <BlurText
               text="ELECTRICAL"
               direction="bottom"
               animateBy="words"
-              delay={100}
+              delay={150}
+              stepDuration={1.0}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground"
             />
             <BlurText
               text="ENGINEER"
               direction="bottom"
               animateBy="words"
-              delay={150}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-primary mt-1"
+              delay={200}
+              stepDuration={1.0}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent mt-1"
             />
             
             {/* Harvard Badge */}
-            <div className="flex items-center gap-4 mt-8">
+            <div className="flex items-center justify-center lg:justify-start gap-4 mt-8">
               <div className="h-px w-12 bg-gradient-to-r from-transparent to-muted-foreground" />
               <BlurText
                 text="@HARVARD"
                 direction="bottom"
                 animateBy="letters"
-                delay={30}
+                delay={40}
+                stepDuration={0.8}
                 className="text-sm sm:text-base tracking-[0.3em] text-muted-foreground font-medium"
               />
             </div>
