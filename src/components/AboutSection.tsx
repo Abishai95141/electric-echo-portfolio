@@ -24,27 +24,26 @@ const skillCategories = [
 const AboutSection = () => {
   return (
     <section className="relative min-h-screen w-full bg-black overflow-hidden font-outfit">
-      {/* Layer 1: LaserFlow Background */}
-      <div className="absolute inset-0 z-[1]">
-        <LaserFlow
-          color="#8C7EF7"
-          fogIntensity={0.3}
-          verticalSizing={2.5}
-          horizontalSizing={0.3}
-          wispDensity={0.8}
-          wispIntensity={3.0}
-          flowSpeed={0.25}
-          mouseTiltStrength={0.02}
-          verticalBeamOffset={-0.2}
-        />
-      </div>
+      {/* Layer 0: Purple Ambient Glow Background */}
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          background: `
+            radial-gradient(ellipse 80% 50% at 50% 0%, rgba(140, 126, 247, 0.15) 0%, transparent 60%),
+            radial-gradient(circle at 50% 30%, rgba(140, 126, 247, 0.08) 0%, transparent 50%),
+            radial-gradient(circle at 30% 70%, rgba(140, 126, 247, 0.05) 0%, transparent 40%),
+            radial-gradient(circle at 70% 60%, rgba(140, 126, 247, 0.05) 0%, transparent 40%)
+          `
+        }}
+      />
 
-      {/* Layer 2: Content Overlay */}
-      <div className="relative z-20 min-h-screen flex items-center">
-        <div className="container mx-auto px-8 md:px-16 lg:px-24 py-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+      {/* Main Content - 3 Column Layout */}
+      <div className="relative z-10 min-h-screen flex items-center">
+        <div className="container mx-auto px-6 md:px-12 lg:px-16 py-24">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_200px_1fr] gap-8 lg:gap-12 items-start">
+            
             {/* Left Column: Title & Bio */}
-            <div className="space-y-8">
+            <div className="space-y-8 order-2 lg:order-1">
               <div>
                 <BlurText
                   text="ABOUT"
@@ -84,8 +83,51 @@ const AboutSection = () => {
               </motion.p>
             </div>
 
+            {/* Center Column: Contained LaserFlow Box */}
+            <div className="hidden lg:flex justify-center order-1 lg:order-2">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, delay: 0.2 }}
+                className="relative w-[180px] h-[500px] rounded-2xl overflow-hidden"
+                style={{
+                  boxShadow: `
+                    0 0 60px rgba(140, 126, 247, 0.25),
+                    0 0 120px rgba(140, 126, 247, 0.15),
+                    inset 0 0 30px rgba(140, 126, 247, 0.1)
+                  `,
+                  border: '1px solid rgba(140, 126, 247, 0.2)'
+                }}
+              >
+                {/* LaserFlow contained within the box */}
+                <LaserFlow
+                  color="#8C7EF7"
+                  fogIntensity={0.4}
+                  verticalSizing={3.0}
+                  horizontalSizing={0.25}
+                  wispDensity={1.0}
+                  wispIntensity={4.0}
+                  flowSpeed={0.3}
+                  mouseTiltStrength={0.015}
+                  verticalBeamOffset={-0.1}
+                />
+                
+                {/* Subtle inner glow overlay */}
+                <div 
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background: `
+                      linear-gradient(to bottom, rgba(140, 126, 247, 0.1) 0%, transparent 20%),
+                      linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, transparent 30%)
+                    `
+                  }}
+                />
+              </motion.div>
+            </div>
+
             {/* Right Column: Skills Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 order-3">
               {skillCategories.map((category, index) => (
                 <motion.div
                   key={category.title}
