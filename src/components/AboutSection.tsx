@@ -83,43 +83,36 @@ const AboutSection = () => {
               </motion.p>
             </div>
 
-            {/* Center Column: Contained LaserFlow Box */}
+            {/* Center Column: Seamless LaserFlow */}
             <div className="hidden lg:flex justify-center order-1 lg:order-2">
               <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 1, delay: 0.2 }}
-                className="relative w-[180px] h-[500px] rounded-2xl overflow-hidden"
-                style={{
-                  boxShadow: `
-                    0 0 60px rgba(140, 126, 247, 0.25),
-                    0 0 120px rgba(140, 126, 247, 0.15),
-                    inset 0 0 30px rgba(140, 126, 247, 0.1)
-                  `,
-                  border: '1px solid rgba(140, 126, 247, 0.2)'
-                }}
+                transition={{ duration: 1.2, delay: 0.2 }}
+                className="relative w-[200px] h-[650px] overflow-hidden"
               >
-                {/* LaserFlow contained within the box */}
+                {/* LaserFlow - seamlessly integrated */}
                 <LaserFlow
                   color="#8C7EF7"
-                  fogIntensity={0.4}
-                  verticalSizing={3.0}
-                  horizontalSizing={0.25}
-                  wispDensity={1.0}
-                  wispIntensity={4.0}
-                  flowSpeed={0.3}
-                  mouseTiltStrength={0.015}
-                  verticalBeamOffset={-0.1}
+                  fogIntensity={0.5}
+                  verticalSizing={4.0}
+                  horizontalSizing={0.2}
+                  wispDensity={1.2}
+                  wispIntensity={5.0}
+                  flowSpeed={0.25}
+                  mouseTiltStrength={0.01}
+                  verticalBeamOffset={-0.3}
                 />
                 
-                {/* Subtle inner glow overlay */}
+                {/* Soft fade masks to blend into background */}
                 <div 
                   className="absolute inset-0 pointer-events-none"
                   style={{
                     background: `
-                      linear-gradient(to bottom, rgba(140, 126, 247, 0.1) 0%, transparent 20%),
-                      linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, transparent 30%)
+                      linear-gradient(to bottom, rgb(0, 0, 0) 0%, transparent 15%),
+                      linear-gradient(to top, rgb(0, 0, 0) 0%, transparent 20%),
+                      linear-gradient(to right, rgb(0, 0, 0) 0%, transparent 15%, transparent 85%, rgb(0, 0, 0) 100%)
                     `
                   }}
                 />
