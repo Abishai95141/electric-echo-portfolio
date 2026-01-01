@@ -1,7 +1,7 @@
 import LightPillar from "./LightPillar";
 import BlurText from "./BlurText";
 import { motion } from "framer-motion";
-import tarunPortrait from "@/assets/tarun-portrait.jpg";
+import tarunPortrait from "@/assets/tarun-portrait.png";
 
 const PortfolioHero = () => {
   return (
@@ -59,7 +59,7 @@ const PortfolioHero = () => {
             <img
               src={tarunPortrait}
               alt="Tarun Sasirekha"
-              className="w-40 h-52 md:w-56 md:h-72 lg:w-64 lg:h-80 object-cover object-top rounded-lg shadow-2xl shadow-purple-500/20"
+              className="w-48 h-auto md:w-64 lg:w-72 object-contain"
             />
           </motion.div>
 
