@@ -54,12 +54,13 @@ const PortfolioHero = () => {
             initial={{ opacity: 0, filter: "blur(20px)", scale: 0.95 }}
             animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
             transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
-            className="mb-2"
+            className="mb-2 relative"
           >
+            <div className="absolute inset-0 bg-purple-500/30 blur-3xl rounded-full scale-110" />
             <img
               src={tarunPortrait}
               alt="Tarun Sasirekha"
-              className="w-56 h-auto md:w-72 lg:w-80 object-contain"
+              className="relative w-64 h-auto md:w-80 lg:w-96 object-contain drop-shadow-[0_0_30px_rgba(168,85,247,0.4)]"
             />
           </motion.div>
 
