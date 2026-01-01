@@ -644,10 +644,7 @@ const MagicBento: React.FC<BentoProps> = ({
       <div className="bento-section w-full">
         <div
           ref={gridRef}
-          className="grid gap-4 w-full"
-          style={{
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))'
-          }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full"
         >
           {React.Children.map(children, (child) => {
             if (React.isValidElement(child)) {

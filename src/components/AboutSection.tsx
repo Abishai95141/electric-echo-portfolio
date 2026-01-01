@@ -78,18 +78,13 @@ const AboutSection = () => {
                 color="#0a0515"
                 className="lg:col-span-2 lg:row-span-2"
               >
-                <div className="flex flex-col justify-between h-full">
-                  <span className="text-xs font-medium tracking-wider uppercase text-purple-400">
-                    About Me
-                  </span>
-                  <div className="mt-4 space-y-4">
-                    <p className="text-lg md:text-xl text-white/80 leading-relaxed">
-                      I am an Electrical Engineering undergraduate at <span className="text-purple-400 font-medium">Harvard University</span> building at the intersection of quantum physics and digital logic.
-                    </p>
-                    <p className="text-base text-white/60 leading-relaxed">
-                      My work spans the full hardware stack—from fabricating MEMS sensors in the cleanroom to synthesizing CPU architectures on FPGAs.
-                    </p>
-                  </div>
+                <div className="space-y-4">
+                  <p className="text-lg md:text-xl text-white/80 leading-relaxed">
+                    I am an Electrical Engineering undergraduate at <span className="text-purple-400 font-medium">Harvard University</span> building at the intersection of quantum physics and digital logic.
+                  </p>
+                  <p className="text-base text-white/60 leading-relaxed">
+                    My work spans the full hardware stack—from fabricating MEMS sensors in the cleanroom to synthesizing CPU architectures on FPGAs.
+                  </p>
                 </div>
               </BentoCard>
 
@@ -99,16 +94,11 @@ const AboutSection = () => {
                 color="#0a0515"
                 className="lg:col-span-2"
               >
-                <div className="flex flex-col justify-between h-full">
-                  <span className="text-xs font-medium tracking-wider uppercase text-purple-400">
-                    Currently
-                  </span>
-                  <div className="mt-4">
-                    <h3 className="text-xl font-semibold text-white mb-2">Harvard Quantum Initiative</h3>
-                    <p className="text-sm text-white/60">
-                      Designing hardware-efficient decoders for Quantum LDPC codes, bridging the gap between theoretical quantum error correction and practical implementation.
-                    </p>
-                  </div>
+                <div className="mt-2">
+                  <h3 className="text-xl font-semibold text-white mb-2">Harvard Quantum Initiative</h3>
+                  <p className="text-sm text-white/60">
+                    Designing hardware-efficient decoders for Quantum LDPC codes, bridging the gap between theoretical quantum error correction and practical implementation.
+                  </p>
                 </div>
               </BentoCard>
 
@@ -118,15 +108,10 @@ const AboutSection = () => {
                 color="#0a0515"
                 className="lg:col-span-2"
               >
-                <div className="flex flex-col h-full">
-                  <span className="text-xs font-medium tracking-wider uppercase text-purple-400 mb-3">
-                    Hardware Design
-                  </span>
-                  <div className="flex flex-wrap gap-2 mt-auto">
-                    {skillCategories.hardware.map((skill) => (
-                      <SkillTag key={skill} skill={skill} />
-                    ))}
-                  </div>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {skillCategories.hardware.map((skill) => (
+                    <SkillTag key={skill} skill={skill} />
+                  ))}
                 </div>
               </BentoCard>
 
@@ -135,15 +120,10 @@ const AboutSection = () => {
                 label="Lab & Validation"
                 color="#0a0515"
               >
-                <div className="flex flex-col h-full">
-                  <span className="text-xs font-medium tracking-wider uppercase text-purple-400 mb-3">
-                    Lab & Validation
-                  </span>
-                  <div className="flex flex-wrap gap-2 mt-auto">
-                    {skillCategories.lab.map((skill) => (
-                      <SkillTag key={skill} skill={skill} />
-                    ))}
-                  </div>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {skillCategories.lab.map((skill) => (
+                    <SkillTag key={skill} skill={skill} />
+                  ))}
                 </div>
               </BentoCard>
 
@@ -152,32 +132,22 @@ const AboutSection = () => {
                 label="Fabrication"
                 color="#0a0515"
               >
-                <div className="flex flex-col h-full">
-                  <span className="text-xs font-medium tracking-wider uppercase text-purple-400 mb-3">
-                    Fabrication
-                  </span>
-                  <div className="flex flex-wrap gap-2 mt-auto">
-                    {skillCategories.fabrication.map((skill) => (
-                      <SkillTag key={skill} skill={skill} />
-                    ))}
-                  </div>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {skillCategories.fabrication.map((skill) => (
+                    <SkillTag key={skill} skill={skill} />
+                  ))}
                 </div>
               </BentoCard>
 
               {/* Programming Card */}
               <BentoCard
-                label="Programming"
+                label="Programming & Tools"
                 color="#0a0515"
               >
-                <div className="flex flex-col h-full">
-                  <span className="text-xs font-medium tracking-wider uppercase text-purple-400 mb-3">
-                    Programming & Tools
-                  </span>
-                  <div className="flex flex-wrap gap-2 mt-auto">
-                    {skillCategories.programming.map((skill) => (
-                      <SkillTag key={skill} skill={skill} />
-                    ))}
-                  </div>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {skillCategories.programming.map((skill) => (
+                    <SkillTag key={skill} skill={skill} />
+                  ))}
                 </div>
               </BentoCard>
             </MagicBento>
