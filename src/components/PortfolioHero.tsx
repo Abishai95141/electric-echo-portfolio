@@ -5,20 +5,44 @@ import tarunPortrait from "@/assets/tarun-portrait.jpg";
 
 const PortfolioHero = () => {
   return (
-    <section className="relative min-h-screen w-full bg-background overflow-hidden font-outfit">
-      {/* WebGL Background */}
-      <LightPillar
-        topColor="#8C7EF7"
-        bottomColor="#000000"
-        pillarRotation={15}
-        intensity={1.2}
-        glowAmount={0.006}
-        pillarWidth={2.5}
-        pillarHeight={0.5}
-        rotationSpeed={0.2}
-      />
+    <section className="relative min-h-screen w-full bg-black overflow-hidden font-outfit">
+      {/* Layer 1: Black background (handled by bg-black on section) */}
 
-      {/* TOP LEFT: Title Block */}
+      {/* Layer 2: Large Portrait Image as background element */}
+      <motion.div
+        initial={{ opacity: 0, filter: "blur(30px)", scale: 1.05 }}
+        animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
+        transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
+        className="absolute inset-0 z-[5] flex items-center justify-center"
+      >
+        <div className="relative w-full h-full flex items-center justify-center">
+          <img
+            src={tarunPortrait}
+            alt="Tarun Sasirekha"
+            className="h-[85vh] w-auto max-w-none object-cover object-top grayscale opacity-70"
+          />
+          {/* Edge fade gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black opacity-80" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black opacity-60" />
+        </div>
+      </motion.div>
+
+      {/* Layer 3: WebGL Light Pillar with blend mode */}
+      <div className="absolute inset-0 z-[10]">
+        <LightPillar
+          topColor="#8C7EF7"
+          bottomColor="#000000"
+          pillarRotation={15}
+          intensity={1.4}
+          glowAmount={0.008}
+          pillarWidth={2.5}
+          pillarHeight={0.5}
+          rotationSpeed={0.2}
+          mixBlendMode="screen"
+        />
+      </div>
+
+      {/* Layer 4: TOP LEFT - Title Block */}
       <div className="absolute top-16 md:top-24 lg:top-32 left-8 md:left-16 lg:left-24 z-20">
         <div className="flex flex-col items-start relative">
           <BlurText
@@ -46,24 +70,9 @@ const PortfolioHero = () => {
         </div>
       </div>
 
-      {/* BOTTOM RIGHT: Portrait + Name Block */}
+      {/* Layer 4: BOTTOM RIGHT - Name Block */}
       <div className="absolute bottom-8 md:bottom-16 lg:bottom-24 right-8 md:right-16 lg:right-24 z-20">
         <div className="flex flex-col items-end relative">
-          {/* Portrait Image with blur animation */}
-          <motion.div
-            initial={{ opacity: 0, filter: "blur(20px)", scale: 0.95 }}
-            animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
-            transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
-            className="mb-4 md:mb-6"
-          >
-            <img
-              src={tarunPortrait}
-              alt="Tarun Sasirekha"
-              className="w-40 h-52 md:w-56 md:h-72 lg:w-64 lg:h-80 object-cover object-top rounded-lg shadow-2xl shadow-purple-500/20"
-            />
-          </motion.div>
-
-          {/* Name Text */}
           <BlurText
             text="TARUN"
             className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter text-white drop-shadow-2xl"
@@ -80,9 +89,6 @@ const PortfolioHero = () => {
           />
         </div>
       </div>
-
-      {/* Subtle gradient overlay for depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/50 pointer-events-none z-[5]" />
     </section>
   );
 };
