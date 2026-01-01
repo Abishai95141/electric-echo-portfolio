@@ -6,22 +6,8 @@ import tarunHeroBg from "@/assets/tarun-hero-bg.jpg";
 const PortfolioHero = () => {
   return (
     <section className="relative min-h-screen w-full bg-black overflow-hidden font-outfit">
-      {/* Layer 1: Black background with portrait image */}
-      <motion.div
-        initial={{ opacity: 0, filter: "blur(30px)", scale: 1.05 }}
-        animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
-        transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
-        className="absolute inset-0 z-[1] flex items-center justify-center"
-      >
-        <img
-          src={tarunHeroBg}
-          alt="Tarun Sasirekha"
-          className="h-full w-auto max-w-none object-cover object-center"
-        />
-      </motion.div>
-
-      {/* Layer 3: WebGL Light Pillar with blend mode */}
-      <div className="absolute inset-0 z-[10]">
+      {/* Layer 1: WebGL Light Pillar (base layer) */}
+      <div className="absolute inset-0 z-[1]">
         <LightPillar
           topColor="#8C7EF7"
           bottomColor="#000000"
@@ -31,9 +17,23 @@ const PortfolioHero = () => {
           pillarWidth={2.5}
           pillarHeight={0.5}
           rotationSpeed={0.2}
-          mixBlendMode="screen"
         />
       </div>
+
+      {/* Layer 2: Portrait image with lighten blend to show light rays through */}
+      <motion.div
+        initial={{ opacity: 0, filter: "blur(30px)", scale: 1.05 }}
+        animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
+        transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
+        className="absolute inset-0 z-[5] flex items-center justify-center"
+        style={{ mixBlendMode: "lighten" }}
+      >
+        <img
+          src={tarunHeroBg}
+          alt="Tarun Sasirekha"
+          className="h-full w-auto max-w-none object-cover object-center"
+        />
+      </motion.div>
 
       {/* Layer 4: TOP LEFT - Title Block */}
       <div className="absolute top-16 md:top-24 lg:top-32 left-8 md:left-16 lg:left-24 z-20">
