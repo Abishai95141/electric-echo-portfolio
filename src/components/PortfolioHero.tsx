@@ -1,30 +1,23 @@
 import LightPillar from "./LightPillar";
 import BlurText from "./BlurText";
 import { motion } from "framer-motion";
-import tarunPortrait from "@/assets/tarun-portrait.jpg";
+import tarunHeroBg from "@/assets/tarun-hero-bg.jpg";
 
 const PortfolioHero = () => {
   return (
     <section className="relative min-h-screen w-full bg-black overflow-hidden font-outfit">
-      {/* Layer 1: Black background (handled by bg-black on section) */}
-
-      {/* Layer 2: Large Portrait Image as background element */}
+      {/* Layer 1: Black background with portrait image */}
       <motion.div
         initial={{ opacity: 0, filter: "blur(30px)", scale: 1.05 }}
         animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
         transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
-        className="absolute inset-0 z-[5] flex items-center justify-center"
+        className="absolute inset-0 z-[1] flex items-center justify-center"
       >
-        <div className="relative w-full h-full flex items-center justify-center">
-          <img
-            src={tarunPortrait}
-            alt="Tarun Sasirekha"
-            className="h-[85vh] w-auto max-w-none object-cover object-top grayscale opacity-70"
-          />
-          {/* Edge fade gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black opacity-80" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black opacity-60" />
-        </div>
+        <img
+          src={tarunHeroBg}
+          alt="Tarun Sasirekha"
+          className="h-full w-auto max-w-none object-cover object-center"
+        />
       </motion.div>
 
       {/* Layer 3: WebGL Light Pillar with blend mode */}
