@@ -82,6 +82,21 @@ const PortfolioHero = () => {
           />
         </div>
       </div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 1.5, ease: "easeOut" }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
+      >
+        <span className="text-xs tracking-[0.3em] text-white/40 uppercase">Scroll</span>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          className="w-[1px] h-8 bg-gradient-to-b from-white/40 to-transparent"
+        />
+      </motion.div>
     </section>
   );
 };
